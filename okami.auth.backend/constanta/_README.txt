@@ -1,0 +1,3 @@
+constanta
+
+berisi kumpulan konstanta

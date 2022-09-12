@@ -1,0 +1,56 @@
+{
+  "server": {
+    "protocol": "http",
+    "ethernet": "eth0",
+    "auto_add_host": false,
+    "auto_add_client": false,
+    "host": "$(OAUTH_HOST)",
+    "port": "$(OAUTH_PORT)",
+    "version": "1.0.0",
+    "resource_id": "$(OAUTH_RESOURCE_ID)",
+    "prefix_path": "okami",
+    "log_level": 10
+  },
+  "postgresql": {
+    "address": "$(OAUTH_DB_CONNECTION)",
+    "default_schema": "$(OAUTH_DB_SCHEMA)",
+    "max_open_connection": 500,
+    "max_idle_connection": 100
+  },
+  "postgresql_view": {
+    "address": "$(OAUTH_DB_CONNECTION_VIEW)",
+    "default_schema": "$(OAUTH_DB_VIEW_SCHEMA)",
+    "max_open_connection": 5,
+    "max_idle_connection": 2
+  },
+  "redis": {
+    "host": "$(OAUTH_REDIS_HOST)",
+    "port": "$(OAUTH_REDIS_PORT)",
+    "db": "$(OAUTH_REDIS_DB)",
+    "password": "$(OAUTH_REDIS_PASSWORD)",
+    "timeout": 10000,
+    "request_volume_threshold": 1000,
+    "sleep_window": 500,
+    "error_percent_threshold": 5,
+    "max_concurrent_requests": 10
+  },
+  "client_credentials": {
+    "client_id": "$(OAUTH_CLIENTID)",
+    "client_secret": "$(OAUTH_CLIENT_SECRET)",
+    "secret_key": "$(OAUTH_SIGNATURE_KEY)",
+    "auth_user_id": "$(OAUTH_AUTH_USERID)"
+  },
+  "log_file": [
+    "oauth.log",
+    "stdout"
+  ],
+  "jwt_key": {
+    "jwt": "$(OAUTH_JWT_KEY)",
+    "internal": "$(OAUTH_INTERNAL_KEY)"
+  },
+  "kafka": {
+    "url": "$(OAUTH_KAFKA)",
+    "group_id": "oauth",
+    "partition": 0
+  }
+}
